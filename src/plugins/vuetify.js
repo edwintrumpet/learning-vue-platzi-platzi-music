@@ -10,7 +10,7 @@ const opts = {
       light: {
         primary: '#00bfd6',
         secondary: '#ff9300',
-        black: '@212121'
+        black: '#212121'
       }
     }
   }
