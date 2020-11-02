@@ -1,7 +1,17 @@
-<template lang="pug">
-  #app
-    img(src="./assets/logo.png")
-    h1 {{ msg }}
+<template>
+  <div id="app">
+    <v-app>
+      <div>
+      <v-btn
+        depressed
+        elevation="2"
+        color="secondary"
+      >
+        Primary
+      </v-btn>
+      </div>
+    </v-app>
+  </div>
 </template>
 
 <script>
@@ -16,5 +26,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import './scss/main.scss';
 </style>

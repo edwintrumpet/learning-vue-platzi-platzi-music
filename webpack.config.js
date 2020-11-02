@@ -1,5 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/main.js',
@@ -11,11 +11,21 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.s(c|a)ss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader'
+          }
+        ]
+      },
+      {
         test: /\.css$/,
         use: [
           'vue-style-loader',
           'css-loader'
-        ],
+        ]
       },
       {
         test: /\.scss$/,
@@ -23,7 +33,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
           'sass-loader'
-        ],
+        ]
       },
       {
         test: /\.sass$/,
@@ -31,7 +41,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
           'sass-loader?indentedSyntax'
-        ],
+        ]
       },
       {
         test: /\.vue$/,
@@ -41,12 +51,12 @@ module.exports = {
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': [
+            scss: [
               'vue-style-loader',
               'css-loader',
               'sass-loader'
             ],
-            'sass': [
+            sass: [
               'vue-style-loader',
               'css-loader',
               'sass-loader?indentedSyntax'
@@ -71,7 +81,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.esm.js'
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
